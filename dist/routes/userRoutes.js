@@ -1,0 +1,18 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.UserRoutes = void 0;
+const express_1 = require("express");
+const userController_1 = require("../controllers/userController");
+class UserRoutes {
+    constructor() {
+        this.userController = new userController_1.UserController();
+        this.router = (0, express_1.Router)();
+        this.routes();
+    }
+    routes() {
+        // For TEST only ! In production, you should use an Identity Provider !!
+        this.router.post("/login", this.userController.authenticateUser);
+    }
+}
+exports.UserRoutes = UserRoutes;
+//# sourceMappingURL=userRoutes.js.map
